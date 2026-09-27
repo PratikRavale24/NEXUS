@@ -1,0 +1,5 @@
+document_id,document_type,case_id,text
+FIR-001,FIR,CASE-001,"On 12 August 2026, Rohan Patil was observed near Central Market with Amit Verma. Vehicle MH01XX1005 was seen at the location."
+FIR-002,REPORT,CASE-001,Rohan K. Patil was seen communicating with a number associated with Alpha Traders.
+FIR-003,SURVEILLANCE_REPORT,CASE-001,R. Patil and Karan Shah were observed near Riverside Warehouse on 18 August 2026.
+FIR-004,INTELLIGENCE_REPORT,CASE-001,Amit Verma was reported near Vehicle MH01XX1005 during an evening meeting.

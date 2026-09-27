@@ -1,0 +1,3 @@
+node_type,node_id,role,reason
+Person,P005,central_node,High planted connectivity
+Person,P009,bridge_node,Connects two planted groups

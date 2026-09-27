@@ -1,0 +1,2 @@
+entity_id,anomaly_type,description
+PH005,communication_burst,Sudden increase in communication with many previously uncommon contacts.
