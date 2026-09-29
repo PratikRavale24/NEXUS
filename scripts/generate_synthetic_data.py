@@ -109,23 +109,42 @@ LAST_NAMES = [
 
 
 def generate_people() -> list[dict]:
-    people = []
+    names = [
+        "Rohan Patil",
+        "Amit Verma",
+        "Karan Shah",
+        "Neha Joshi",
+        "Vikram Deshmukh",
+        "Priya Mehta",
+        "Rahul Pawar",
+        "Sahil Kulkarni",
+        "Aditya Joshi",
+        "Isha Patel",
+        "Nikhil Patil",
+        "Meera Shah",
+        "Arjun Verma",
+        "Ananya Deshmukh",
+        "Manav Kulkarni",
+        "Sameer Khan",
+        "Kavya Rao",
+        "Dev Mishra",
+        "Tanvi Kapoor",
+        "Rohit Nair",
+        "Pooja Malhotra",
+        "Siddharth Jain",
+        "Simran Kaur",
+        "Yash Sethi",
+        "Ayesha Khan",
+    ]
 
-    for index in range(1, NUM_PERSONS + 1):
-        first = FIRST_NAMES[(index - 1) % len(FIRST_NAMES)]
-        last = LAST_NAMES[(index - 1) % len(LAST_NAMES)]
-
-        name = f"{first} {last}"
-
-        people.append(
-            {
-                "person_id": f"P{index:03d}",
-                "name": name,
-                "normalized_name": name.lower(),
-            }
-        )
-
-    return people
+    return [
+        {
+            "person_id": f"P{index:03d}",
+            "name": name,
+            "normalized_name": name.lower(),
+        }
+        for index, name in enumerate(names, start=1)
+    ]
 
 
 def generate_phones() -> list[dict]:
@@ -461,37 +480,37 @@ def generate_reports() -> tuple[list[dict], list[dict]]:
     ]
 
     ground_truth = [
-        {
-            "document_id": "FIR-001",
-            "mention": "Rohan Patil",
-            "entity_type": "Person",
-            "canonical_id": "P001",
-        },
-        {
-            "document_id": "FIR-001",
-            "mention": "Amit Verma",
-            "entity_type": "Person",
-            "canonical_id": "P002",
-        },
-        {
-            "document_id": "FIR-002",
-            "mention": "Rohan K. Patil",
-            "entity_type": "Person",
-            "canonical_id": "P001",
-        },
-        {
-            "document_id": "FIR-003",
-            "mention": "R. Patil",
-            "entity_type": "Person",
-            "canonical_id": "P001",
-        },
-        {
-            "document_id": "FIR-003",
-            "mention": "Karan Shah",
-            "entity_type": "Person",
-            "canonical_id": "P003",
-        },
-    ]
+    {
+        "document_id": "FIR-001",
+        "mention": "Rohan Patil",
+        "entity_type": "Person",
+        "canonical_id": "P001",
+    },
+    {
+        "document_id": "FIR-001",
+        "mention": "Amit Verma",
+        "entity_type": "Person",
+        "canonical_id": "P002",
+    },
+    {
+        "document_id": "FIR-002",
+        "mention": "Rohan K. Patil",
+        "entity_type": "Person",
+        "canonical_id": "P001",
+    },
+    {
+        "document_id": "FIR-003",
+        "mention": "R. Patil",
+        "entity_type": "Person",
+        "canonical_id": "P001",
+    },
+    {
+        "document_id": "FIR-003",
+        "mention": "Karan Shah",
+        "entity_type": "Person",
+        "canonical_id": "P003",
+    },
+]
 
     return documents, ground_truth
 
