@@ -1,0 +1,86 @@
+[
+  {
+    "event_id": "EVT-FIR-001-01",
+    "event_type": "OBSERVATION",
+    "case_id": "CASE-001",
+    "evidence_id": "FIR-001",
+    "timestamp": "2026-08-12T00:00:00",
+    "time_precision": "day",
+    "description": "On 12 August 2026, Rohan Patil was observed near Central Market with Amit Verma.",
+    "entity_ids": [
+      {
+        "entity_type": "Person",
+        "entity_id": "P001",
+        "name": "Rohan Patil"
+      },
+      {
+        "entity_type": "Location",
+        "entity_id": "L001",
+        "name": "Central Market"
+      }
+    ],
+    "relation_types": [
+      "SEEN_AT"
+    ]
+  },
+  {
+    "event_id": "EVT-FIR-002-01",
+    "event_type": "MEETING",
+    "case_id": "CASE-001",
+    "evidence_id": "FIR-002",
+    "timestamp": null,
+    "time_precision": null,
+    "description": "Rohan K. Patil was seen communicating with a number associated with Alpha Traders.",
+    "entity_ids": [
+      {
+        "entity_type": "Person",
+        "entity_id": "P001",
+        "name": "Rohan Patil"
+      },
+      {
+        "entity_type": "Person",
+        "entity_id": "P011",
+        "name": "Nikhil Patil"
+      },
+      {
+        "entity_type": "Organization",
+        "entity_id": "ORG001",
+        "name": "Alpha Traders"
+      }
+    ],
+    "relation_types": [
+      "ASSOCIATED_WITH",
+      "MEETS"
+    ]
+  },
+  {
+    "event_id": "EVT-FIR-003-01",
+    "event_type": "MEETING",
+    "case_id": "CASE-001",
+    "evidence_id": "FIR-003",
+    "timestamp": "2026-08-18T00:00:00",
+    "time_precision": "day",
+    "description": "R. Patil and Karan Shah were observed near Riverside Warehouse on 18 August 2026.",
+    "entity_ids": [
+      {
+        "entity_type": "Person",
+        "entity_id": "P001",
+        "name": "Rohan Patil"
+      },
+      {
+        "entity_type": "Person",
+        "entity_id": "P003",
+        "name": "Karan Shah"
+      },
+      {
+        "entity_type": "Location",
+        "entity_id": "L003",
+        "name": "Riverside Warehouse"
+      }
+    ],
+    "relation_types": [
+      "MEETS",
+      "SEEN_AT"
+    ]
+  }
+]

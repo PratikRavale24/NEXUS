@@ -1,0 +1,60 @@
+[
+  {
+    "finding_id": "TEMP-L003-2026-08-18T21:00:00+00:00",
+    "finding_type": "TEMPORAL_COORDINATION",
+    "location_id": "L003",
+    "location_name": "Riverside Warehouse",
+    "participants": [
+      "P005",
+      "P009",
+      "P011",
+      "P014"
+    ],
+    "participant_count": 4,
+    "window_start": "2026-08-18T21:00:00+00:00",
+    "window_end": "2026-08-18T21:09:00+00:00",
+    "window_seconds": 540,
+    "evidence_ids": [
+      "SURV-COORD-001",
+      "SURV-COORD-002",
+      "SURV-COORD-003",
+      "SURV-COORD-004"
+    ],
+    "case_ids": [
+      "CASE-001"
+    ],
+    "method": "co_location_window",
+    "parameters": {
+      "window_seconds": 900,
+      "min_participants": 3
+    }
+  },
+  {
+    "finding_id": "TEMP-L003-2026-08-18T21:03:00+00:00",
+    "finding_type": "TEMPORAL_COORDINATION",
+    "location_id": "L003",
+    "location_name": "Riverside Warehouse",
+    "participants": [
+      "P009",
+      "P011",
+      "P014"
+    ],
+    "participant_count": 3,
+    "window_start": "2026-08-18T21:03:00+00:00",
+    "window_end": "2026-08-18T21:09:00+00:00",
+    "window_seconds": 360,
+    "evidence_ids": [
+      "SURV-COORD-002",
+      "SURV-COORD-003",
+      "SURV-COORD-004"
+    ],
+    "case_ids": [
+      "CASE-001"
+    ],
+    "method": "co_location_window",
+    "parameters": {
+      "window_seconds": 900,
+      "min_participants": 3
+    }
+  }
+]

@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NEXUS frontend
 
-## Getting Started
+NEXUS is an explainable criminal-network intelligence prototype for authorized investigative analysis. It uses a deterministic synthetic dataset; analytical indicators are investigative leads, not guilt determinations.
 
-First, run the development server:
+## Start locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+From the repository root, start PostgreSQL and Neo4j with Docker Compose, then start the FastAPI service:
+
+```powershell
+.\backend\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In this directory, create `frontend/.env.local` with the public API URL if the default is not suitable:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then run:
 
-## Learn More
+```powershell
+npm.cmd run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Demo flow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Open the dashboard and select **Open Rohan Patil**.
+2. Inspect the entity record, relationship graph, and chronology.
+3. Open **Findings** and choose an anomaly or temporal-coordination candidate.
+4. Review the explanation and source-linked evidence.
+5. Add investigator notes and mark the candidate under review.
 
-## Deploy on Vercel
+## Checks
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```powershell
+npm.cmd run lint
+npm.cmd run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The frontend expects the API routes for health, entities, network, timeline, findings, evidence references, and finding review. Neo4j remains the active graph integration; no demo fallback is used while it is available.

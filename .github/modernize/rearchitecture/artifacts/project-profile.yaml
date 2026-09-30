@@ -1,0 +1,49 @@
+project:
+  scope_path: "."
+  loc: 50000
+  languages: [python, typescript, javascript]
+  git: true
+  structure:
+    backend: "FastAPI application, services, schemas, and Neo4j access"
+    frontend: "Next.js application with Cytoscape network experience"
+    scripts: "Data ingestion, analytics, NLP, and graph processing scripts"
+    tests: "Python service, schema, and intelligence tests"
+    data: "Synthetic, raw, processed, and ground-truth investigative datasets"
+    infra: "Deployment and infrastructure configuration"
+  notes: "NEXUS investigative network explorer with FastAPI, Neo4j, Next.js, and Cytoscape."
+
+assessment:
+  change_type: upgrade
+  rationale: |
+    The approved work preserves the existing Python/Neo4j/Next.js/Cytoscape architecture and public routes while improving reliability, query bounds, graph lifecycle, and investigator-facing network interactions.
+  transformations:
+    - fromStack: "FastAPI + Neo4j"
+      fromStackVersion: "existing"
+      toStack: "FastAPI + Neo4j with application-scoped driver and bounded graph queries"
+      toStackVersion: "existing stack"
+    - fromStack: "Next.js + Cytoscape"
+      fromStackVersion: "existing"
+      toStack: "Next.js + Cytoscape investigator network workspace"
+      toStackVersion: "existing stack"
+  grouping_needed: false
+  deep_planning: undecided
+
+progress_sync:
+  run_id: "8c7f5e5c-40af-4aa4-9cc0-f6db7c8e4a71"
+  grouping_mode: none
+  execution_mode: "all-at-once"
+  plan_start_time: "2026-09-30T00:00:00Z"
+  plan_completed_time: ""
+  execution_start_time: ""
+  execution_completed_time: ""
+  validation_start_time: ""
+  validation_completed_time: ""
+  total_phases: 3
+  completed_phases: 0
+  total_modules: 5
+  completed_modules: 0
+  total_tasks: 11
+  completed_tasks: 2
+  total_commits: 3
+  build_verified: false
+  test_verified: false

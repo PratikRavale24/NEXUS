@@ -1,0 +1,61 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: nexus-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    ports:
+      - "127.0.0.1:5432:5432"
+
+    volumes:
+      - nexus_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  neo4j:
+    image: neo4j:5-community
+    container_name: nexus-neo4j
+    restart: unless-stopped
+
+    environment:
+      NEO4J_AUTH: ${NEO4J_USER}/${NEO4J_PASSWORD}
+      NEO4J_PLUGINS: '["graph-data-science"]'
+      NEO4J_dbms_security_procedures_unrestricted: "gds.*"
+      NEO4J_dbms_security_procedures_allowlist: "gds.*"
+
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+
+    volumes:
+      - nexus_neo4j_data:/data
+      - nexus_neo4j_logs:/logs
+      - nexus_neo4j_plugins:/plugins
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+
+volumes:
+  nexus_postgres_data:
+  nexus_neo4j_data:
+  nexus_neo4j_logs:
+  nexus_neo4j_plugins:

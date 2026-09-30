@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -57,5 +58,10 @@ class FindingDetail(FindingSummary):
 
 
 class FindingReviewRequest(BaseModel):
-    status: str
+    status: Literal[
+        "NEW",
+        "UNDER_REVIEW",
+        "CONFIRMED",
+        "REJECTED",
+    ]
     review_notes: str | None = None

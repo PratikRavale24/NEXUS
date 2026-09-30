@@ -1,0 +1,278 @@
+[
+  {
+    "document_id": "FIR-001",
+    "case_id": "CASE-001",
+    "mention": "12 August 2026",
+    "label": "DATE",
+    "start_char": 3,
+    "end_char": 17
+  },
+  {
+    "document_id": "FIR-001",
+    "case_id": "CASE-001",
+    "mention": "Rohan Patil",
+    "label": "PERSON",
+    "start_char": 19,
+    "end_char": 30,
+    "resolution": {
+      "mention": "Rohan Patil",
+      "resolved": true,
+      "person_id": "P001",
+      "canonical_name": "Rohan Patil",
+      "score": 1.0,
+      "status": "AUTO_RESOLVED",
+      "review_required": false,
+      "candidates": [
+        {
+          "person_id": "P001",
+          "canonical_name": "Rohan Patil",
+          "score": 1.0
+        },
+        {
+          "person_id": "P011",
+          "canonical_name": "Nikhil Patil",
+          "score": 0.5707
+        },
+        {
+          "person_id": "P010",
+          "canonical_name": "Isha Patel",
+          "score": 0.4333
+        }
+      ]
+    }
+  },
+  {
+    "document_id": "FIR-001",
+    "case_id": "CASE-001",
+    "mention": "Central Market",
+    "label": "LOC",
+    "start_char": 49,
+    "end_char": 63
+  },
+  {
+    "document_id": "FIR-001",
+    "case_id": "CASE-001",
+    "mention": "Vehicle MH01XX1005",
+    "label": "PERSON",
+    "start_char": 81,
+    "end_char": 99,
+    "resolution": {
+      "mention": "Vehicle MH01XX1005",
+      "resolved": false,
+      "person_id": "P005",
+      "canonical_name": "Vikram Deshmukh",
+      "score": 0.197,
+      "status": "UNRESOLVED",
+      "review_required": true,
+      "candidates": [
+        {
+          "person_id": "P005",
+          "canonical_name": "Vikram Deshmukh",
+          "score": 0.197
+        },
+        {
+          "person_id": "P018",
+          "canonical_name": "Dev Mishra",
+          "score": 0.1857
+        },
+        {
+          "person_id": "P025",
+          "canonical_name": "Ayesha Khan",
+          "score": 0.1793
+        }
+      ]
+    }
+  },
+  {
+    "document_id": "FIR-001",
+    "case_id": "CASE-001",
+    "mention": "MH01XX1005",
+    "label": "VEHICLE",
+    "start_char": 89,
+    "end_char": 99
+  },
+  {
+    "document_id": "FIR-002",
+    "case_id": "CASE-001",
+    "mention": "Rohan K. Patil",
+    "label": "PERSON",
+    "start_char": 0,
+    "end_char": 14,
+    "resolution": {
+      "mention": "Rohan K. Patil",
+      "resolved": true,
+      "person_id": "P001",
+      "canonical_name": "Rohan Patil",
+      "score": 0.93,
+      "status": "AUTO_RESOLVED",
+      "review_required": false,
+      "candidates": [
+        {
+          "person_id": "P001",
+          "canonical_name": "Rohan Patil",
+          "score": 0.93
+        },
+        {
+          "person_id": "P011",
+          "canonical_name": "Nikhil Patil",
+          "score": 0.4807
+        },
+        {
+          "person_id": "P010",
+          "canonical_name": "Isha Patel",
+          "score": 0.3957
+        }
+      ]
+    }
+  },
+  {
+    "document_id": "FIR-002",
+    "case_id": "CASE-001",
+    "mention": "K. Patil",
+    "label": "PERSON",
+    "start_char": 6,
+    "end_char": 14,
+    "resolution": {
+      "mention": "K. Patil",
+      "resolved": false,
+      "person_id": "P011",
+      "canonical_name": "Nikhil Patil",
+      "score": 0.6539,
+      "status": "UNRESOLVED",
+      "review_required": true,
+      "candidates": [
+        {
+          "person_id": "P011",
+          "canonical_name": "Nikhil Patil",
+          "score": 0.6539
+        },
+        {
+          "person_id": "P001",
+          "canonical_name": "Rohan Patil",
+          "score": 0.6083
+        },
+        {
+          "person_id": "P010",
+          "canonical_name": "Isha Patel",
+          "score": 0.3824
+        }
+      ]
+    }
+  },
+  {
+    "document_id": "FIR-002",
+    "case_id": "CASE-001",
+    "mention": "Alpha Traders",
+    "label": "ORG",
+    "start_char": 68,
+    "end_char": 81
+  },
+  {
+    "document_id": "FIR-003",
+    "case_id": "CASE-001",
+    "mention": "R. Patil",
+    "label": "PERSON",
+    "start_char": 0,
+    "end_char": 8,
+    "resolution": {
+      "mention": "R. Patil",
+      "resolved": true,
+      "person_id": "P001",
+      "canonical_name": "Rohan Patil",
+      "score": 0.95,
+      "status": "AUTO_RESOLVED",
+      "review_required": false,
+      "candidates": [
+        {
+          "person_id": "P001",
+          "canonical_name": "Rohan Patil",
+          "score": 0.95
+        },
+        {
+          "person_id": "P011",
+          "canonical_name": "Nikhil Patil",
+          "score": 0.5855
+        },
+        {
+          "person_id": "P010",
+          "canonical_name": "Isha Patel",
+          "score": 0.3824
+        }
+      ]
+    }
+  },
+  {
+    "document_id": "FIR-003",
+    "case_id": "CASE-001",
+    "mention": "Karan Shah",
+    "label": "PERSON",
+    "start_char": 13,
+    "end_char": 23,
+    "resolution": {
+      "mention": "Karan Shah",
+      "resolved": true,
+      "person_id": "P003",
+      "canonical_name": "Karan Shah",
+      "score": 1.0,
+      "status": "AUTO_RESOLVED",
+      "review_required": false,
+      "candidates": [
+        {
+          "person_id": "P003",
+          "canonical_name": "Karan Shah",
+          "score": 1.0
+        },
+        {
+          "person_id": "P012",
+          "canonical_name": "Meera Shah",
+          "score": 0.63
+        },
+        {
+          "person_id": "P005",
+          "canonical_name": "Vikram Deshmukh",
+          "score": 0.364
+        }
+      ]
+    }
+  },
+  {
+    "document_id": "FIR-003",
+    "case_id": "CASE-001",
+    "mention": "Riverside Warehouse",
+    "label": "LOC",
+    "start_char": 43,
+    "end_char": 62
+  },
+  {
+    "document_id": "FIR-003",
+    "case_id": "CASE-001",
+    "mention": "18 August 2026",
+    "label": "DATE",
+    "start_char": 66,
+    "end_char": 80
+  },
+  {
+    "document_id": "FIR-004",
+    "case_id": "CASE-001",
+    "mention": "Vehicle MH01XX1005",
+    "label": "FAC",
+    "start_char": 29,
+    "end_char": 47
+  },
+  {
+    "document_id": "FIR-004",
+    "case_id": "CASE-001",
+    "mention": "MH01XX1005",
+    "label": "VEHICLE",
+    "start_char": 37,
+    "end_char": 47
+  },
+  {
+    "document_id": "FIR-004",
+    "case_id": "CASE-001",
+    "mention": "evening",
+    "label": "TIME",
+    "start_char": 58,
+    "end_char": 65
+  }
+]

@@ -5,7 +5,7 @@ from fastapi import (
     HTTPException,
 )
 
-from ..config import settings
+from ..graph import driver
 from ..schemas.finding import (
     FindingDetail,
     FindingReviewRequest,
@@ -16,7 +16,6 @@ from ..services.finding_service import (
     list_findings,
     review_finding,
 )
-from neo4j import GraphDatabase
 
 
 router = APIRouter(
@@ -25,34 +24,13 @@ router = APIRouter(
 )
 
 
-def get_driver():
-    return GraphDatabase.driver(
-        settings.neo4j_uri,
-        auth=(
-            settings.neo4j_user,
-            settings.neo4j_password,
-        ),
-    )
-
-
 @router.get(
     "",
     response_model=list[FindingSummary],
 )
 def get_all_findings():
 
-    driver = get_driver()
-
-    try:
-
-        driver.verify_connectivity()
-
-        return list_findings(
-            driver
-        )
-
-    finally:
-        driver.close()
+    return list_findings(driver)
 
 
 @router.get(
@@ -63,28 +41,10 @@ def get_finding_by_id(
     finding_id: str,
 ):
 
-    driver = get_driver()
-
-    try:
-
-        driver.verify_connectivity()
-
-        finding = get_finding(
-            driver,
-            finding_id,
-        )
-
-        if finding is None:
-
-            raise HTTPException(
-                status_code=404,
-                detail="Finding not found.",
-            )
-
-        return finding
-
-    finally:
-        driver.close()
+    finding = get_finding(driver, finding_id)
+    if finding is None:
+        raise HTTPException(status_code=404, detail="Finding not found.")
+    return finding
 
 
 @router.post(
@@ -95,12 +55,7 @@ def review_finding_by_id(
     request: FindingReviewRequest,
 ):
 
-    driver = get_driver()
-
     try:
-
-        driver.verify_connectivity()
-
         result = review_finding(
             driver,
             finding_id,
@@ -127,5 +82,3 @@ def review_finding_by_id(
             detail=str(exc),
         )
 
-    finally:
-        driver.close()

@@ -1,4 +1,7 @@
-from neo4j import GraphDatabase
+from collections.abc import Iterator
+from contextlib import contextmanager
+
+from neo4j import Driver, GraphDatabase
 
 from .config import settings
 
@@ -10,6 +13,17 @@ driver = GraphDatabase.driver(
         settings.neo4j_password,
     ),
 )
+
+
+@contextmanager
+def session() -> Iterator:
+    """Yield a short-lived session from the application-scoped driver."""
+    with driver.session() as graph_session:
+        yield graph_session
+
+
+def close_driver() -> None:
+    driver.close()
 
 
 def check_neo4j() -> bool:

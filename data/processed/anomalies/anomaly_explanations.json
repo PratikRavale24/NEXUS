@@ -1,0 +1,63 @@
+[
+  {
+    "person_id": "P005",
+    "person_name": "Vikram Deshmukh",
+    "anomaly_rank": 1,
+    "anomaly_score": -0.712665532411358,
+    "reasons": [
+      "High total outgoing communication volume: 30.00 (top 0.0% of observed entities).",
+      "High number of unique communication contacts: 20.00 (top 0.0% of observed entities).",
+      "High maximum calls observed within a day: 3.00 (top 0.0% of observed entities).",
+      "High night-time communication activity: 14.00 (top 0.0% of observed entities).",
+      "High number of financial transactions: 21.00 (top 0.0% of observed entities).",
+      "High aggregate financial activity: 535068.00 (top 0.0% of observed entities).",
+      "High network connectivity: 98.00 (top 0.0% of observed entities).",
+      "High bridge-position in the network: 27.26 (top 0.0% of observed entities)."
+    ],
+    "model": "IsolationForest"
+  },
+  {
+    "person_id": "P025",
+    "person_name": "Ayesha Khan",
+    "anomaly_rank": 2,
+    "anomaly_score": -0.612526417619581,
+    "reasons": [
+      "The model identified an unusual multi-feature behavioral profile."
+    ],
+    "model": "IsolationForest"
+  },
+  {
+    "person_id": "P003",
+    "person_name": "Karan Shah",
+    "anomaly_rank": 3,
+    "anomaly_score": -0.5673547760896651,
+    "reasons": [
+      "Elevated total outgoing communication volume: 11.00.",
+      "Elevated number of unique communication contacts: 9.00.",
+      "High night-time communication activity: 6.00 (top 4.0% of observed entities).",
+      "High network connectivity: 62.00 (top 4.0% of observed entities).",
+      "High bridge-position in the network: 10.40 (top 4.0% of observed entities)."
+    ],
+    "model": "IsolationForest"
+  },
+  {
+    "person_id": "P008",
+    "person_name": "Sahil Kulkarni",
+    "anomaly_rank": 4,
+    "anomaly_score": -0.5047884567421055,
+    "reasons": [
+      "Elevated network connectivity: 56.00."
+    ],
+    "model": "IsolationForest"
+  },
+  {
+    "person_id": "P023",
+    "person_name": "Simran Kaur",
+    "anomaly_rank": 5,
+    "anomaly_score": -0.5008236436673034,
+    "reasons": [
+      "The model identified an unusual multi-feature behavioral profile."
+    ],
+    "model": "IsolationForest"
+  }
+]

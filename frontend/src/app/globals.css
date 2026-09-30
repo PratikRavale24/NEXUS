@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f7f9;
+  --foreground: #18212b;
+  --ink: #18212b;
+  --muted: #65717d;
+  --line: #dce2e7;
+  --panel: #ffffff;
+  --signal: #b4532a;
+  --signal-soft: #fff3ec;
+  --navy: #183243;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+* { box-sizing: border-box; }
+html { background: var(--background); }
 body {
-  background: var(--background);
+  background: radial-gradient(circle at 88% -10%, rgba(180, 83, 42, 0.08), transparent 28rem), linear-gradient(135deg, #f8fafb 0%, #f1f4f6 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 }
+button, a, input, select, textarea { font: inherit; }
+::selection { background: #f3c5af; color: var(--ink); }
