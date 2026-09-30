@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, Header, HTTPException, Query
+from fastapi import APIRouter, Cookie, Depends, Header, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from ..config import settings
+from ..auth import MOCK_SESSION_COOKIE, resolve_user
 from ..database import get_db
 from ..models import CaseStatus, Document, UserRole
 from ..schemas.case import CaseDetail, CaseStatusUpdate, CaseSummary, DocumentMetadata, ProcessingStart, PrototypeIdentity, TimelineEntry
@@ -10,17 +11,17 @@ from ..services.case_service import get_audit, get_case, get_documents, list_cas
 router = APIRouter(prefix="/cases", tags=["Cases"])
 
 
-def prototype_identity(x_prototype_role: str | None = Header(default=None), x_prototype_user_id: int | None = Header(default=None)) -> PrototypeIdentity:
-    if settings.app_env.lower() != "development":
-        raise HTTPException(
-            status_code=401,
-            detail="Prototype identity is disabled outside development; configure Entra/OIDC authentication.",
-        )
-    try:
-        role = UserRole((x_prototype_role or UserRole.INVESTIGATOR.value).upper())
-    except ValueError as exc:
-        raise HTTPException(status_code=403, detail="Prototype role is not permitted.") from exc
-    return PrototypeIdentity(user_id=x_prototype_user_id, role=role)
+def prototype_identity(
+    x_prototype_role: str | None = Header(default=None),
+    x_prototype_user_id: int | None = Header(default=None),
+    session_token: str | None = Cookie(default=None, alias=MOCK_SESSION_COOKIE),
+) -> PrototypeIdentity:
+    identity = resolve_user(session_token, x_prototype_role, x_prototype_user_id)
+    if identity is None and settings.app_env.lower() == "development" and not x_prototype_role:
+        return PrototypeIdentity(user_id=x_prototype_user_id, role=UserRole.INVESTIGATOR)
+    if identity is None:
+        raise HTTPException(status_code=401, detail="Authentication is required.")
+    return PrototypeIdentity(user_id=identity.user_id, role=identity.role)
 
 
 def require(identity: PrototypeIdentity, *roles: UserRole) -> PrototypeIdentity:

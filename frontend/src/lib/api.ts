@@ -12,6 +12,8 @@ import type {
   CaseStatus,
   CaseSummary,
   CaseTimelineEntry,
+  AuthResponse,
+  UserRole,
 } from "./types";
 
 
@@ -38,6 +40,7 @@ async function apiRequest<T>(
           "Content-Type": "application/json",
           ...(options?.headers ?? {}),
         },
+        credentials: "include",
         cache: "no-store",
       },
     );
@@ -71,6 +74,18 @@ async function apiRequest<T>(
   }
 
   return response.json();
+}
+
+export function getCurrentUser(): Promise<AuthResponse> {
+  return apiRequest<AuthResponse>("/auth/me");
+}
+
+export function loginMock(role: UserRole): Promise<AuthResponse> {
+  return apiRequest<AuthResponse>("/auth/mock/login", { method: "POST", body: JSON.stringify({ role }) });
+}
+
+export function logoutMock(): Promise<{ status: string }> {
+  return apiRequest<{ status: string }>("/auth/mock/logout", { method: "POST" });
 }
 
 export function getHealth(path = "/health"): Promise<HealthStatus> {
@@ -193,7 +208,6 @@ export function startCaseProcessing(caseId: number, documentId: number) {
 export function updateCaseStatus(caseId: number, status: CaseStatus): Promise<CaseSummary> {
   return apiRequest<CaseSummary>(`/cases/${caseId}/status`, {
     method: "PATCH",
-    headers: { "X-Prototype-Role": "SUPERVISOR" },
     body: JSON.stringify({ status }),
   });
 }

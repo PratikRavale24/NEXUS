@@ -38,7 +38,7 @@ NEO4J_PASSWORD=<injected-secret>
 
 `CORS_ORIGINS` is a comma-separated exact-origin list. Include the Vercel production domain and any deliberately supported preview domain; do not use `*` with credentials. The frontend `NEXT_PUBLIC_API_BASE_URL` must point to this backend, and the backend must be reachable over HTTPS.
 
-The prototype `X-Prototype-Role` and `X-Prototype-User-Id` headers work only when `APP_ENV=development`. In every other environment the API rejects prototype identity, including spoofed role headers. This is fail-closed demo behavior, not production authentication.
+The development UI uses `POST /auth/mock/login` to issue an in-memory, HttpOnly mock-session cookie. Mock sessions and the backward-compatible `X-Prototype-Role` / `X-Prototype-User-Id` headers work only when `APP_ENV=development`; protected API requests fail closed in every other environment. This is not production authentication: it has no durable identity store, password verification, MFA, Entra/OIDC validation, or production-grade session management.
 
 ## Remaining production requirement
 
@@ -61,4 +61,4 @@ Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`. The local `.env` keeps `APP_ENV=development`, which is the only mode where the synthetic prototype role headers are enabled. Use `npm run lint` and `npm run build` before deploying the frontend.
+Open `http://localhost:3000/login`. The local `.env` keeps `APP_ENV=development`, which is the only mode where synthetic mock sessions and the isolated prototype header fallback are enabled. Configure real Entra ID/OIDC authentication before any non-development deployment. Use `npm run lint` and `npm run build` before deploying the frontend.

@@ -41,6 +41,16 @@ export type ApiError = Error & {
   requestId?: string;
 };
 
+export type UserRole = "INVESTIGATOR" | "ANALYST" | "SUPERVISOR" | "ADMIN";
+
+export type AuthUser = {
+  user_id: number | null;
+  role: UserRole;
+  display_name: string;
+};
+
+export type AuthResponse = { user: AuthUser };
+
 export type TimelineItem = {
   timestamp: string | null;
   event_type: string;

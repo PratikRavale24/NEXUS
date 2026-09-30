@@ -8,6 +8,8 @@ from neo4j.exceptions import Neo4jError
 from .api.entities import router as entities_router
 from .api.findings import router as findings_router
 from .api.cases import router as cases_router
+from .api.auth import router as auth_router
+from .auth import MockAuthMiddleware
 from .config import settings
 
 from sqlalchemy import text
@@ -45,6 +47,10 @@ async def neo4j_error_handler(
     )
 
 app.add_middleware(
+    MockAuthMiddleware,
+)
+
+app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,
     allow_credentials=True,
@@ -60,6 +66,7 @@ app.include_router(
     entities_router
 )
 app.include_router(cases_router)
+app.include_router(auth_router)
 
 
 @app.on_event("shutdown")
